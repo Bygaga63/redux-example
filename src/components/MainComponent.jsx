@@ -9,6 +9,24 @@ import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 import {changeFirstName, changeSecondName} from "../store/actions";
 
+
+//так передавать state в виде объекта в компонент компоненту.
+const putStateToProps = (state) => {
+    console.log(state)
+    return {
+        firstName: state.firstName,
+        secondName: state.secondName
+    };
+};
+
+// так передавать методы  ввиде объекта в props
+const putActionsToProps = (dispatch) => {
+    return {
+        changeFirstName: bindActionCreators(changeFirstName, dispatch),
+        changeSecondName: bindActionCreators(changeSecondName, dispatch)
+    }
+};
+
 class MainComponent extends React.Component {
     render() {
         //функция dispatch позволяет управлять action
@@ -39,25 +57,6 @@ class MainComponent extends React.Component {
 
             </div>
         );
-    }
-}
-
-
-//так передавать state в виде объекта в компонент компоненту.
-const putStateToProps = (state) => {
-    console.log(state)
-    return {
-        firstName: state.firstName,
-        secondName: state.secondName
-    };
-};
-
-
-// так передавать методы  ввиде объекта в props
-const putActionsToProps = (dispatch) => {
-    return {
-        changeFirstName: bindActionCreators(changeFirstName, dispatch),
-        changeSecondName: bindActionCreators(changeSecondName, dispatch)
     }
 }
 

@@ -17,3 +17,9 @@ export const rootReducer = (state = initialState, action) => {
         default: return state;
     }
 };
+
+
+//редьюсер принимает 2 параметра, state, action;
+//внутри создается switch по action.type
+//в зависимости от выбранного варианта возвращается все что было в state и изменное поле action.payload
+//initialState нужен для того что бы компоненты получили изначально какие-то пропсы
