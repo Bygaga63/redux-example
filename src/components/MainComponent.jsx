@@ -62,7 +62,7 @@ const putActionsToProps = (dispatch) => {
 }
 
 
-// так мы загружаем props. mapStateToProps - это функция,
+// так мы загружаем props. putStateToProps - это функция,
 // в которой мы выбираем какие props у нас будут,
 // MainComponent - это компонент в который нам нужно засунунть эти пропсы
 export default connect(putStateToProps, putActionsToProps)(MainComponent);
